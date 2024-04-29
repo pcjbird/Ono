@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		893CE3132BDF65BB00561B2E /* Ono-XCFramework */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 893CE3162BDF65BC00561B2E /* Build configuration list for PBXAggregateTarget "Ono-XCFramework" */;
+			buildPhases = (
+				893CE3172BDF65C100561B2E /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = "Ono-XCFramework";
+			productName = "Ono-XCFramework";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		A18A844921A34F9F00E9CC5E /* Ono.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A18A844021A34F9F00E9CC5E /* Ono.framework */; };
 		A18A845C21A3503D00E9CC5E /* ONOAtomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F82D39981AA61AD000DAC057 /* ONOAtomTests.m */; };
@@ -330,9 +344,9 @@
 			productReference = A18A844821A34F9F00E9CC5E /* Ono tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F82D394D1AA6199E00DAC057 /* Ono iOS */ = {
+		F82D394D1AA6199E00DAC057 /* Ono */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F82D39641AA6199E00DAC057 /* Build configuration list for PBXNativeTarget "Ono iOS" */;
+			buildConfigurationList = F82D39641AA6199E00DAC057 /* Build configuration list for PBXNativeTarget "Ono" */;
 			buildPhases = (
 				F82D39491AA6199E00DAC057 /* Sources */,
 				F82D394A1AA6199E00DAC057 /* Frameworks */,
@@ -343,7 +357,7 @@
 			);
 			dependencies = (
 			);
-			name = "Ono iOS";
+			name = Ono;
 			productName = "Ono iOS";
 			productReference = F82D394E1AA6199E00DAC057 /* Ono.framework */;
 			productType = "com.apple.product-type.framework";
@@ -413,6 +427,10 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Mattt;
 				TargetAttributes = {
+					893CE3132BDF65BB00561B2E = {
+						CreatedOnToolsVersion = 15.0;
+						ProvisioningStyle = Automatic;
+					};
 					A18A843F21A34F9F00E9CC5E = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Manual;
@@ -449,12 +467,13 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F82D394D1AA6199E00DAC057 /* Ono iOS */,
+				F82D394D1AA6199E00DAC057 /* Ono */,
 				F82D39581AA6199E00DAC057 /* Ono iOS Tests */,
 				F82D396F1AA61A0B00DAC057 /* Ono OS X */,
 				F82D39791AA61A0B00DAC057 /* Ono OS X Tests */,
 				A18A843F21A34F9F00E9CC5E /* Ono tvOS */,
 				A18A844721A34F9F00E9CC5E /* Ono tvOSTests */,
+				893CE3132BDF65BB00561B2E /* Ono-XCFramework */,
 			);
 		};
 /* End PBXProject section */
@@ -518,6 +537,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		893CE3172BDF65C100561B2E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n$SRCROOT/scripts/XCFrameworkBuildScript.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A18A843C21A34F9F00E9CC5E /* Sources */ = {
@@ -596,7 +635,7 @@
 		};
 		F82D395C1AA6199E00DAC057 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F82D394D1AA6199E00DAC057 /* Ono iOS */;
+			target = F82D394D1AA6199E00DAC057 /* Ono */;
 			targetProxy = F82D395B1AA6199E00DAC057 /* PBXContainerItemProxy */;
 		};
 		F82D397D1AA61A0B00DAC057 /* PBXTargetDependency */ = {
@@ -607,6 +646,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		893CE3142BDF65BC00561B2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = Ono;
+			};
+			name = Debug;
+		};
+		893CE3152BDF65BC00561B2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = Ono;
+			};
+			name = Release;
+		};
 		A18A845121A34F9F00E9CC5E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -870,6 +925,7 @@
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mattt.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Ono;
 				SKIP_INSTALL = YES;
@@ -892,6 +948,7 @@
 				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mattt.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Ono;
 				SKIP_INSTALL = YES;
@@ -1069,6 +1126,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		893CE3162BDF65BC00561B2E /* Build configuration list for PBXAggregateTarget "Ono-XCFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				893CE3142BDF65BC00561B2E /* Debug */,
+				893CE3152BDF65BC00561B2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A18A845521A34F9F00E9CC5E /* Build configuration list for PBXNativeTarget "Ono tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1096,7 +1162,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F82D39641AA6199E00DAC057 /* Build configuration list for PBXNativeTarget "Ono iOS" */ = {
+		F82D39641AA6199E00DAC057 /* Build configuration list for PBXNativeTarget "Ono" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F82D39651AA6199E00DAC057 /* Debug */,
